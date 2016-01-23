@@ -39,7 +39,7 @@
     <div class="container" id="home">
         <div class="row text-center">
       <div class="col-md-12" >
-          <h1 class="head-main"><i class="fa fa-signal fa-x"></i> Konfuzios</h1>
+          <h1 class="head-main"><i class="fa fa-signal fa-x"></i> Ubersentiment</h1>
            <h2 class="head-sub-main">Social Sentiment Analysis</h2>
           <h3 class="head-last"></h3>
           
@@ -387,6 +387,49 @@
       </div>
 </section>
     <!--End Services Section -->  
+	
+	     <!-- Trial Section -->
+   
+     <section class="for-full-back color-dark " id="price-sec"  >
+   <div class="container" >
+          <div class="row text-center" >
+
+<div class="col-md-12 g-pad-bottom" >
+        
+      
+
+                <div class="col-md-12">
+	                <ul class="trial">
+	                    <li class="plan-head">Free Trial</li>
+	                    <li class="main-price">
+							<input class="form-group" placeholder="Ticker e.g. AAPL" id="symb" type="textbox" style="text-align:center;width:70%;"></input>
+						</li>
+						
+	                    <li>Short Term Sentiment: <strong id="st_sentiment"></strong></li>
+	                    <li>Mid Term Sentiment: <strong id="mt_sentiment"></strong></li>
+                         <li>Long Term Sentiment: <strong id="lt_sentiment"></strong></li>
+                         <li style="padding-left:20%;padding-right:20%;">
+							Sentiment figures are calculated based on different data sources.
+								A sentiment of 100 points describes a situation in which all traders are bullish and vice versa with -100 sentiment points.
+							
+						 </li>
+	                    <li class="bottom">
+	                    	<a id="getupdate" name = "getupdate" type="button" class="btn btn-primary">Load Sentiment</a>
+	                    </li>
+	                </ul>
+	            </div>
+
+	             
+
+    </div>
+          </div>
+
+
+       </div>
+         </section>
+
+      <!--End Trial Section -->
+	  
     <!-- Contact Section -->  
      <section class="for-full-back color-light " id="contact-sec"  >
    <div class="container" >      
@@ -438,12 +481,12 @@
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" name="sender_name" id="sender_name" class="form-control" required="required" placeholder="Name">
+                                        <input type="text" class="form-control" required="required" placeholder="Name">
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <input type="text" name="sender_mail" id="sender_mail" class="form-control" required="required" placeholder="Email address">
+                                        <input type="text" class="form-control" required="required" placeholder="Email address">
                                     </div>
                                 </div>
                             </div>
@@ -481,6 +524,25 @@
     <script src="assets/plugins/vegas/jquery.vegas.min.js"></script>
      <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
+	<script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+	
+	<script>
+		jQuery(document).ready(function($){
+		$('#getupdate').click(function() {
+        var symbol = $('input[id=symb]').val(); 
+        var url = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20yahoo.finance.quotes%20where%20symbol%3D%22' + symbol + '%22&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys&callback=';
+        $.getJSON(url, function(data) {
+        					rsp = data.query.results.quote
+                  short_term = ((rsp.Ask-rsp.DaysHigh)*1000/rsp.Ask).toFixed(2);
+                  long_term = ((rsp.YearHigh-rsp.Ask)*100/rsp.Ask).toFixed(2);
+                  mid_term = ((rsp.Ask-rsp.YearLow)*100/rsp.YearLow).toFixed(2);
+        					$('#st_sentiment').html(short_term);
+                  $('#mt_sentiment').html(mid_term);
+                  $('#lt_sentiment').html(long_term);
+				});
+		});
+		});
+	</script>
      
 </body>
 </html>
