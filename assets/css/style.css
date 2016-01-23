@@ -150,7 +150,7 @@ border-color: #3D3D3D;
 .team-member {
     float: left;
     position: relative;
-    width: 100%;
+    width: 80%;
 }
 .team-member > img {
     float: left;
@@ -158,7 +158,7 @@ border-color: #3D3D3D;
 }
 .team-member > h3 {
     background: rgba(95, 154, 255, 0.85);
-    bottom: 25px;
+    bottom: -55px;
     color:#fff;
     font-size: 20px;
     letter-spacing: 1px;
@@ -176,7 +176,7 @@ border-color: #3D3D3D;
 }
 .team-member:hover > h3 {
     background: #000;
-    bottom: -55px;
+    bottom: -85px;
     color: #FFFFFF;	
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
