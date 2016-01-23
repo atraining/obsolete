@@ -39,7 +39,7 @@ h1 {
     line-height:40px;
     font-weight:900;
     font-size:40px;
-    padding:0px 20px 10px 0px;
+    padding:50px 50px 50px 20px;
 }
 h3 {
     line-height:30px;
@@ -158,25 +158,22 @@ border-color: #3D3D3D;
 }
 .team-member > h3 {
     background: rgba(95, 154, 255, 0.85);
-    bottom: -55px;
+    bottom: -95px;
     color:#fff;
     font-size: 20px;
     letter-spacing: 1px;
     line-height: 16px;
     padding: 15px 0;
-    position: absolute;
+    /*position: absolute;*/
     text-align: center;  
     width: 100%;
-    
-	-webkit-transition: all 0.3s ease 0s;
-	-moz-transition: all 0.3s ease 0s;
-	-ms-transition: all 0.3s ease 0s;
-	-o-transition: all 0.3s ease 0s;
-	transition: all 0.3s ease 0s;
+	
+
 }
+/*
 .team-member:hover > h3 {
     background: #000;
-    bottom: -85px;
+    bottom: -95px;
     color: #FFFFFF;	
 	-webkit-transition: all 0.3s ease 0s;
 	-moz-transition: all 0.3s ease 0s;
@@ -184,7 +181,7 @@ border-color: #3D3D3D;
 	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 }
-
+*/
 /*=======================================
     PRICING STYLES
 ==================================================*/
