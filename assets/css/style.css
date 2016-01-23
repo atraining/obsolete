@@ -154,7 +154,7 @@ border-color: #3D3D3D;
 }
 .team-member > img {
     float: left;
-    width: 100%;
+    width: 70%;
 }
 .team-member > h3 {
     background: rgba(95, 154, 255, 0.85);
